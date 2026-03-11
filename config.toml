@@ -1,0 +1,28 @@
+# Codex Configuration File
+# 配置使用 Timi 内部 GPT API
+
+# 默认使用的模型提供商
+model_provider = "timi"
+
+# 默认使用的模型
+model = "gpt-5-codex"
+
+# Timi API 配置
+[model_providers.timi]
+name = "Timi Internal GPT"
+# Base URL - 使用 chat/completions 接口（标准 OpenAI 格式）
+base_url = "http://api.timiai.woa.com/ai_api_manage/llmproxy"
+# API Key 环境变量名
+env_key = "TIMI_API_KEY"
+# 使用 responses 接口（使用 input 参数）
+wire_api = "responses"
+
+[notice.model_migrations]
+gpt-5-codex = "gpt-5.2-codex"
+
+# 可选：如果需要使用 responses 接口（使用 input 参数），可以配置另一个提供商
+# [model_providers.timi_responses]
+# name = "Timi Internal GPT (Responses API)"
+# base_url = "http://api.timiai.woa.com/ai_api_manage/llmproxy"
+# env_key = "TIMI_API_KEY"
+# wire_api = "responses"
